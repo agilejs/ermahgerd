@@ -21,8 +21,8 @@ before_script:
 # more information on automatic deployment to heroku
 deploy:
   provider: heroku
-  app: movie-database-node
+  app: agilejs-ermahgerd
   api_key:
-    secure: ! 'VM4D68593b50AlKIJLnBJjukmf6XzR0lX8t/GBT8JBklxnXQKHUcfwNjE9jf
-      mra/rYws45pRyWjJzITPHScTtmK82bcj+5FCoB4sjEvOqAKWAcFPSbK+oJ/g
-      P3UPGArmHC73gZ/YFoD6TCzRJDLOYCekaiscPEQr9Bs9cwXCRp0='
+  - secure: ! 'EoE6kDFOwBochkz6SfEaZlzzn4mpKNaAR7C2ZYWcwXi60v7n7yv0IGruWKJJ
+      PYrMdQTYrahsihKTq69nqMvdeSPvsLKxG88zlMohNNnqRGUdjeVDAEMClNfN
+      aev8W5NsGp/j0Q2hmRagIFbVvi56moNhD14qBdAeWpUyitWr5GA='
