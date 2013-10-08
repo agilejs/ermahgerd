@@ -81,3 +81,27 @@ describe('Movies', function () {
         expect(repeater('table tbody tr').count()).toBeGreaterThan(0);
     });
 });
+
+
+describe('Navigation', function () {
+    'use strict';
+
+    it('should highlight only one item on every page', function () {
+        browser().navigateTo('/');
+        expect(element('ul.nav li.active').count()).toEqual(1);
+
+        element('a:contains("Movies")').click();
+        expect(element('ul.nav li.active').count()).toEqual(1);
+    });
+
+    it('should highlight only the Home menu item on the index page', function () {
+        browser().navigateTo('/');
+        expect(element('ul.nav li.active a').text()).toEqual('Home');
+    });
+
+    it('should highlight only the Movies menu item on the movies page', function () {
+        browser().navigateTo('/movies');
+        expect(element('ul.nav li.active a').text()).toEqual('Movies');
+    });
+
+});
