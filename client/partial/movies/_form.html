@@ -43,6 +43,17 @@
     </div>
   </div>
   <div class="control-group">
+    <label class="control-label" for="inputDescription">Release Date</label>
+    <div class="controls">
+      <input type="text"
+             id="inputReleaseDate"
+             name="releaseDate"
+             class="input-block-level"
+             autofocus
+             ng-model="movie.releaseDate">
+    </div>
+  </div>
+  <div class="control-group">
     <label class="control-label" for="inputDescription">Description</label>
     <div class="controls">
       <textarea rows="5"
@@ -52,7 +63,10 @@
                 ng-model="movie.description"
                 required>
       </textarea>
+<<<<<<< HEAD
+=======
       <span class="error" ng-show="addmovieform.description.$error.required">Description is required!</span>
+>>>>>>> 8fb955119c6832e703a7ed5fd2c55a6415f345a1
     </div>
   </div>
   <div class="form-actions">
