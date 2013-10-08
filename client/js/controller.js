@@ -34,6 +34,9 @@ function MoviesAddCtrl ($scope, $http, $location) {
             $location.path('/movies/' + res.id);
         });
     };
+    $scope.validate = function (movie) {
+        console.log("Title: " + movie.title);
+    };
 }
 
 function MovieDetailCtrl ($scope, $http, $location, moviesResponse) {
