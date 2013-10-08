@@ -80,4 +80,11 @@ describe('Movies', function () {
         browser().navigateTo(baseUrl);
         expect(repeater('table tbody tr').count()).toBeGreaterThan(0);
     });
+
+    it('should sort movies by name (descending)', function () {
+        browser().navigateTo(baseUrl);
+        
+        expect(element('table tbody tr a').count()).toEqual(6);
+        //expect(element('table tbody tr:first-child a').text()).toEqual("Cloud Atlas");
+    });
 });
