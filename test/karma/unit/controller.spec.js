@@ -7,6 +7,7 @@ describe('controller', function () {
 
         it('should set a title', function () {
             var scope = {};
+            scope.$on = function() {};
 
             AppCtrl(scope);
 
