@@ -8,8 +8,8 @@
             class="input-block-level"
             autofocus
             ng-model="movie.title"
-            ng-change="validate(movie)"
-            required>
+            required
+            autofocus>
         <span class="error" ng-show="addmovieform.title.$error.required">
             Title is required!
         </span>
@@ -18,12 +18,27 @@
 <div class="control-group">
     <label class="control-label" for="inputDescription">Release Date</label>
     <div class="controls">
-      <input type="text"
-             id="inputReleaseDate"
-             name="title"
-             class="input-block-level"
-             autofocus
-             ng-model="movie.releaseDate">
+        <input type="text"
+            id="inputReleaseDate"
+            name="releaseDate"
+            class="input-block-level"
+            ng-model="movie.releaseDate"
+            required
+            min="1900"
+            ng-minlength="4"
+            ng-maxlength="4">
+        <span class="error" ng-show="addmovieform.releaseDate.$error.required">
+            Release date is required!
+        </span>
+        <span class="error" ng-show="addmovieform.releaseDate.$error.minlength">
+            Release date must consist of 4 digits!
+        </span>
+        <span class="error" ng-show="addmovieform.releaseDate.$error.maxlength">
+            Release date must consist of 4 digits!
+        </span>
+        <span class="error" ng-show="addmovieform.releaseDate.$error.min">
+            Release date must be greater than 1900!
+        </span>
     </div>
   </div>
   <div class="control-group">
@@ -57,7 +72,8 @@
     <button type="submit"
             class="btn btn-primary"
             ng-click="save(movie)"
-            ng-disabled="addmovieform.title.$invalid || addmovieform.description.$invalid">
+            ng-disabled="addmovieform.title.$invalid || addmovieform.description.$invalid
+             || addmovieform.releaseDate.$invalid">
       Save
     </button>
     <a href="/movies/{{movie.id}}" class="btn">Cancel</a>
