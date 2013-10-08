@@ -25,9 +25,6 @@ function MoviesListCtrl ($scope, $location, moviesResponse) {
     'use strict';
     $scope.movies = moviesResponse.data;
     $scope.currentPredicate = 'title';
-    $scope.add = function () {
-        $location.path('/movies/new');
-    };
 }
 
 MoviesListCtrl.resolve = {

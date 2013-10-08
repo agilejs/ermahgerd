@@ -26,27 +26,6 @@ describe('controller', function () {
             MoviesListCtrl(scope, $location, moviesResponse);
 
             expect(scope.movies).to.deep.equal(moviesResponse.data);
-            expect(scope.add).to.be.a('function');
-        });
-
-        it('should redirect to the add movie page', function () {
-            var scope = {};
-            var $location = {};
-            var moviesResponse = {
-                data: 42
-            };
-
-            var redirected = false;
-
-            $location.path = function () {
-                redirected = true;
-            };
-
-            MoviesListCtrl(scope, $location, moviesResponse);
-
-            scope.add();
-
-            expect(redirected).to.be.ok;
         });
     });
 
