@@ -1,6 +1,19 @@
-function AppCtrl ($scope) {
+function AppCtrl ($scope, $location) {
     'use strict';
     $scope.title = 'The Movie Database';
+
+
+    $scope.$on('$locationChangeSuccess', function(event){
+        $scope.home_menu_item = '';
+        $scope.movies_menu_item = '';
+
+        if($location.path() === '/') {
+            $scope.home_menu_item = 'active';
+        }
+        else if($location.path() === '/movies') {
+            $scope.movies_menu_item = 'active';
+        }
+    });
 }
 
 function WelcomeCtrl($scope, moviesResponse) {
