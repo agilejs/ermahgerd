@@ -82,25 +82,16 @@ describe('Movies', function () {
         expect(repeater('table tbody tr').count()).toBeGreaterThan(0);
     });
 
-    it('should sort movies by name (descending)', function () {
+    it('should sort movies by name', function () {
         browser().navigateTo(baseUrl);
-        
-        expect(element('table tbody tr a').count()).toEqual(6);
-        expect(element('table tbody tr:nth-of-type(1) a').text()).toEqual("Cloud Atlas");
-        expect(element('table tbody tr:nth-of-type(2) a').text()).toEqual("Ted");
-        expect(element('table tbody tr:nth-of-type(3) a').text()).toEqual("The Dark Knight");
-        expect(element('table tbody tr:nth-of-type(4) a').text()).toEqual("The Dark Knight Rises");
-        expect(element('table tbody tr:nth-of-type(5) a').text()).toEqual("The Meerkats");
-        expect(element('table tbody tr:nth-of-type(6) a').text()).toEqual("Undisputed II: Last Man Standing");
 
-        element('thead a').click();
-        expect(element('table tbody tr a').count()).toEqual(6);
-        expect(element('table tbody tr:nth-of-type(6) a').text()).toEqual("Cloud Atlas");
-        expect(element('table tbody tr:nth-of-type(5) a').text()).toEqual("Ted");
-        expect(element('table tbody tr:nth-of-type(4) a').text()).toEqual("The Dark Knight");
-        expect(element('table tbody tr:nth-of-type(3) a').text()).toEqual("The Dark Knight Rises");
-        expect(element('table tbody tr:nth-of-type(2) a').text()).toEqual("The Meerkats");
-        expect(element('table tbody tr:nth-of-type(1) a').text()).toEqual("Undisputed II: Last Man Standing");
+        element('thead th:nth-of-type(1) a').click();
+        expect(element('table tbody tr:nth-of-type(6) a').text()).toEqual('Cloud Atlas2000');
+        expect(element('table tbody tr:nth-of-type(5) a').text()).toEqual('Ted2000');
+        expect(element('table tbody tr:nth-of-type(4) a').text()).toEqual('The Dark Knight2000');
+        expect(element('table tbody tr:nth-of-type(3) a').text()).toEqual('The Dark Knight Rises2000');
+        expect(element('table tbody tr:nth-of-type(2) a').text()).toEqual('The Meerkats2000');
+        expect(element('table tbody tr:nth-of-type(1) a').text()).toEqual('Undisputed II: Last Man Standing2000');
     });
 });
 

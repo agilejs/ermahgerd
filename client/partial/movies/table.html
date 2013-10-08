@@ -2,12 +2,16 @@
     <thead>
         <tr>
             <th><a href="" ng-click="currentPredicate='title';reverse=!reverse">Title</a></th>
+            <th><a href="" ng-click="currentPredicate='releaseDate';reverse=!reverse">Release year</a></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="movie in movies | orderBy:currentPredicate:reverse">
             <td>
                 <a href="#" ng-href="/movies/{{movie.id}}">{{movie.title}}</a>
+            </td>
+            <td>
+                <a href="#" ng-href="/movies/{{movie.id}}">{{movie.releaseDate}}</a>
             </td>
         </tr>
     </tbody>
