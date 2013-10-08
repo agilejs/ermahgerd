@@ -41,6 +41,7 @@ describe('Movies', function () {
         browser().navigateTo(addMovieUrl);
         input('movie.title').enter(title);
         input('movie.description').enter(description);
+        input('movie.releaseDate').enter('2000');
         element('.btn-primary').click();
     }
 
@@ -80,4 +81,49 @@ describe('Movies', function () {
         browser().navigateTo(baseUrl);
         expect(repeater('table tbody tr').count()).toBeGreaterThan(0);
     });
+
+    it('should sort movies by name (descending)', function () {
+        browser().navigateTo(baseUrl);
+        
+        expect(element('table tbody tr a').count()).toEqual(6);
+        expect(element('table tbody tr:nth-of-type(1) a').text()).toEqual("Cloud Atlas");
+        expect(element('table tbody tr:nth-of-type(2) a').text()).toEqual("Ted");
+        expect(element('table tbody tr:nth-of-type(3) a').text()).toEqual("The Dark Knight");
+        expect(element('table tbody tr:nth-of-type(4) a').text()).toEqual("The Dark Knight Rises");
+        expect(element('table tbody tr:nth-of-type(5) a').text()).toEqual("The Meerkats");
+        expect(element('table tbody tr:nth-of-type(6) a').text()).toEqual("Undisputed II: Last Man Standing");
+
+        element('thead a').click();
+        expect(element('table tbody tr a').count()).toEqual(6);
+        expect(element('table tbody tr:nth-of-type(6) a').text()).toEqual("Cloud Atlas");
+        expect(element('table tbody tr:nth-of-type(5) a').text()).toEqual("Ted");
+        expect(element('table tbody tr:nth-of-type(4) a').text()).toEqual("The Dark Knight");
+        expect(element('table tbody tr:nth-of-type(3) a').text()).toEqual("The Dark Knight Rises");
+        expect(element('table tbody tr:nth-of-type(2) a').text()).toEqual("The Meerkats");
+        expect(element('table tbody tr:nth-of-type(1) a').text()).toEqual("Undisputed II: Last Man Standing");
+    });
+});
+
+
+describe('Navigation', function () {
+    'use strict';
+
+    it('should highlight only one item on every page', function () {
+        browser().navigateTo('/');
+        expect(element('ul.nav li.active').count()).toEqual(1);
+
+        element('a:contains("Movies")').click();
+        expect(element('ul.nav li.active').count()).toEqual(1);
+    });
+
+    it('should highlight only the Home menu item on the index page', function () {
+        browser().navigateTo('/');
+        expect(element('ul.nav li.active a').text()).toEqual('Home');
+    });
+
+    it('should highlight only the Movies menu item on the movies page', function () {
+        browser().navigateTo('/movies');
+        expect(element('ul.nav li.active a').text()).toEqual('Movies');
+    });
+
 });
