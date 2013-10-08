@@ -41,6 +41,7 @@ describe('Movies', function () {
         browser().navigateTo(addMovieUrl);
         input('movie.title').enter(title);
         input('movie.description').enter(description);
+        input('movie.releaseDate').enter('2000');
         element('.btn-primary').click();
     }
 
