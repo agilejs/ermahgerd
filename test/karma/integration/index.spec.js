@@ -41,6 +41,7 @@ describe('Movies', function () {
         browser().navigateTo(addMovieUrl);
         input('movie.title').enter(title);
         input('movie.description').enter(description);
+        input('movie.releaseDate').enter('2000');
         element('.btn-primary').click();
     }
 
@@ -87,4 +88,28 @@ describe('Movies', function () {
         expect(element('table tbody tr a').count()).toEqual(6);
         //expect(element('table tbody tr:first-child a').text()).toEqual("Cloud Atlas");
     });
+});
+
+
+describe('Navigation', function () {
+    'use strict';
+
+    it('should highlight only one item on every page', function () {
+        browser().navigateTo('/');
+        expect(element('ul.nav li.active').count()).toEqual(1);
+
+        element('a:contains("Movies")').click();
+        expect(element('ul.nav li.active').count()).toEqual(1);
+    });
+
+    it('should highlight only the Home menu item on the index page', function () {
+        browser().navigateTo('/');
+        expect(element('ul.nav li.active a').text()).toEqual('Home');
+    });
+
+    it('should highlight only the Movies menu item on the movies page', function () {
+        browser().navigateTo('/movies');
+        expect(element('ul.nav li.active a').text()).toEqual('Movies');
+    });
+
 });
