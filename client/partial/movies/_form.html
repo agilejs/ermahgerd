@@ -18,8 +18,7 @@
 <div class="control-group">
     <label class="control-label" for="inputDescription">Release Date</label>
     <div class="controls">
-        <input type="text"
-            id="inputReleaseDate"
+        <input id="inputReleaseDate"
             type="number"
             name="releaseDate"
             class="input-block-level"
@@ -31,14 +30,14 @@
         <span class="error" ng-show="addmovieform.releaseDate.$error.required">
             Release date is required!
         </span>
-        <span class="error" ng-show="addmovieform.releaseDate.$error.minlength">
-            Release date must consist of 4 digits!
-        </span>
-        <span class="error" ng-show="addmovieform.releaseDate.$error.maxlength">
+        <span class="error" ng-show="addmovieform.releaseDate.$error.minlength || addmovieform.releaseDate.$error.maxlength">
             Release date must consist of 4 digits!
         </span>
         <span class="error" ng-show="addmovieform.releaseDate.$error.min">
             Release date must be greater than 1900!
+        </span>
+        <span class="error" ng-show="addmovieform.releaseDate.$error.number">
+            Not a valid number!
         </span>
     </div>
   </div>
