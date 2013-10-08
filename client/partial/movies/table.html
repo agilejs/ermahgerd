@@ -1,0 +1,16 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th><a href="" ng-click="currentPredicate='title';reverse=!reverse">Title</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="movie in movies | orderBy:currentPredicate:reverse">
+            <td>
+                <a href="#" ng-href="/movies/{{movie.id}}">
+                    {{movie.title}}
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
